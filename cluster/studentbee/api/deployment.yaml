@@ -12,7 +12,7 @@ metadata:
   name: studentbee-api
   namespace: studentbee
 spec:
-  replicas: 2
+  replicas: 1
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -128,4 +128,3 @@ spec:
                     values:
                       - nginx
               topologyKey: kubernetes.io/hostname
-
