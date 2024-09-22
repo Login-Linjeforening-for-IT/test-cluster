@@ -1,0 +1,22 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: queenbee-frontend-ingress
+  namespace: queenbee
+spec:
+  ingressClassName: nginx-ntnu
+  tls:
+    - hosts:
+        - queenbee-dev.login.no
+  rules:
+    - host: queenbee-dev.login.no
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: queenbee-frontend-svc
+                port:
+                  number: 4200

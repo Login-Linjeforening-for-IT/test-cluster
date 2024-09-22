@@ -1,0 +1,131 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: studentbee-api
+    component: api
+    part-of: beehive
+    project: exam.login.no
+    confidentiality: not-defined
+    compliance: not-defined
+  name: studentbee-api
+  namespace: studentbee
+spec:
+  replicas: 2
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: studentbee-api
+  template:
+    metadata:
+      labels:
+        app: studentbee-api
+        component: api
+        part-of: beehive
+        project: exam.login.no
+        confidentiality: not-defined
+        compliance: not-defined
+    spec:
+      imagePullSecrets:
+        - name: studentbee-pull-secret
+      containers:
+        - name: api
+          image: registry.login.no/tekkom/web/beehive/exam.login.no/api:1.1.0-dev@sha256:cbfb3fd6e6b577a12a042c40260f6013d43bc30b7c57ce1f168688f06fab7286
+          command:
+            - npm
+            - start
+          env:
+            # Shared environment variables
+            - name: BACKEND_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: 1pwd-exam-secrets-studentbee
+                  key: BACKEND_SECRET
+            - name: TYPE
+              value: service_account
+            - name: AUTH_URI
+              value: https://accounts.google.com/o/oauth2/auth
+            - name: TOKEN_URI
+              value: https://oauth2.googleapis.com/token
+            - name: AUTH_CERT_URL
+              value: https://www.googleapis.com/oauth2/v1/certs
+            - name: UNIVERSE_DOMAIN
+              value: googleapis.com
+            - name: REDIS_HOST
+              value: localhost
+            - name: REDIS_PORT
+              value: "6379"
+            # Dev environment variables
+            - name: DEVELOPMENT
+              value: "true"
+            - name: DEV_PROJECT_ID
+              value: exam-1d347
+            - name: DEV_PRIVATE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: 1pwd-exam-secrets-studentbee
+                  key: DEV_PRIVATE_KEY
+            - name: DEV_PRIVATE_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: 1pwd-exam-secrets-studentbee
+                  key: DEV_PRIVATE_KEY_ID
+            - name: DEV_CLIENT_EMAIL
+              value: firebase-adminsdk-aosxw@exam-1d347.iam.gserviceaccount.com
+            - name: DEV_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: 1pwd-exam-secrets-studentbee
+                  key: DEV_CLIENT_ID
+            - name: DEV_CLIENT_CERT_URL
+              value: https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-aosxw%40exam-1d347.iam.gserviceaccount.com
+          ports:
+            - containerPort: 8080
+              name: 8080tcp
+              protocol: TCP
+          # livenessProbe:
+          #   httpGet:
+          #     path: /api/health
+          #     port: 8080
+          #   initialDelaySeconds: 10
+          #   periodSeconds: 10
+          # readinessProbe:
+          #   httpGet:
+          #     path: /api/
+          #     port: 8080
+          #   initialDelaySeconds: 30
+          #   periodSeconds: 5
+          resources:
+            requests:
+              memory: 128Mi
+              cpu: 125m
+            limits:
+              memory: 512Mi
+              cpu: 1000m
+        - name: redis
+          image: redis:7.4.0-alpine3.20@sha256:c35af3bbcef51a62c8bae5a9a563c6f1b60d7ebaea4cb5a3ccbcc157580ae098
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 6379
+              name: 6379tcp
+              protocol: TCP
+          resources:
+            requests:
+              memory: 128Mi
+              cpu: 125m
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - nginx
+              topologyKey: kubernetes.io/hostname
+

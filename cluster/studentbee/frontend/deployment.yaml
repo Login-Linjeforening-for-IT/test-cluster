@@ -1,0 +1,78 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: studentbee-frontend
+    component: frontend
+    part-of: beehive
+    project: exam.login.no
+    confidentiality: not-defined
+    compliance: not-defined
+  name: studentbee-frontend
+  namespace: studentbee
+spec:
+  replicas: 2
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: studentbee-frontend
+  template:
+    metadata:
+      labels:
+        app: studentbee-frontend
+        component: frontend
+        part-of: beehive
+        project: exam.login.no
+        confidentiality: not-defined
+        compliance: not-defined
+    spec:
+      imagePullSecrets:
+        - name: gitlab-deploy-key-studentbee
+      containers:
+        - name: webserver
+          image: registry.login.no/tekkom/web/beehive/exam.login.no/frontend:1.1.0-dev@sha256:84eafd893c91b532497f95dda2d4e6b88b3a4bdd882b70d6f8f48d6a0b45bd82
+          imagePullPolicy: IfNotPresent
+          command:
+            - npm
+            - start
+          env:
+            - name: API_URL
+              value: http://studentbee-api.studentbee.svc.cluster.local:8080/api
+            - name: BROWSER_API
+              value: http://dev-exam-api.login.no:8080/api
+          ports:
+            - containerPort: 3000
+              name: 3000tcp
+              protocol: TCP
+          # livenessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: 3000
+          #   initialDelaySeconds: 10
+          #   periodSeconds: 10
+          # readinessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: 3000
+          #   initialDelaySeconds: 30
+          #   periodSeconds: 5
+          resources:
+            requests:
+              memory: 128Mi
+              cpu: 125m
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - nginx
+              topologyKey: kubernetes.io/hostname
+
