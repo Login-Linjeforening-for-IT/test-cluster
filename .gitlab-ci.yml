@@ -1,8 +1,8 @@
 ---
 stages:
-  - test
+  - tmp
 
-sast:
-  stage: test
-include:
-  - template: Security/SAST.gitlab-ci.yml
+tmp:
+  stage: tmp
+  script:
+    - echo "Test"
