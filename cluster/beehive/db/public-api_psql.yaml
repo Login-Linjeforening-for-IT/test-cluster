@@ -13,20 +13,29 @@ spec:
   storage:
     size: 2Gi
   postgresql:
-    pg_hba:
-      - host all all 10.0.0.0/8 md5
     parameters:
       timezone: "Europe/Oslo"
+  superuserSecret:
+    name: beehive-public-api-db-credentials
   bootstrap:
-    initdb:
-      database: beehive
-      owner: beehive
-      secret:
-        name: beehive-public-api-db-credentials
+    recovery:
+      source: clusterBackup
+  externalClusters:
+    - name: clusterBackup
+      barmanObjectStore:
+        destinationPath: s3://login-internal-prod-psql-backups/beehive-dev
+        serverName: public-api-psql
+        s3Credentials:
+          accessKeyId:
+            name: beehive-pg-backup
+            key: access
+          secretAccessKey:
+            name: beehive-pg-backup
+            key: secret
   backup:
     retentionPolicy: "30d"
     barmanObjectStore:
-      destinationPath: s3://login-internal-prod-psql-backups/beehive-dev
+      destinationPath: s3://login-internal-prod-psql-backups/beehive
       s3Credentials:
         accessKeyId:
           name: beehive-pg-backup
