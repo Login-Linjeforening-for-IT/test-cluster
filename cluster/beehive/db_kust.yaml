@@ -5,7 +5,7 @@ metadata:
   name: db
   namespace: beehive
 spec:
-  interval: 1m
+  interval: 5m
   path: "cluster/beehive/db"
   dependsOn:
     - name: psql
@@ -13,5 +13,5 @@ spec:
   prune: true
   sourceRef:
     kind: GitRepository
-    name: flux-system
+    name: test-cluster
     namespace: flux-system
