@@ -84,6 +84,22 @@ spec:
                   key: DEV_CLIENT_ID
             - name: DEV_CLIENT_CERT_URL
               value: https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-aosxw%40exam-1d347.iam.gserviceaccount.com
+            - name: BASE_URL
+              value: https://authentik.login.no
+            - name: CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: 1pwd-exam-secrets-studentbee
+                  key: CLIENT_ID
+            - name: CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: 1pwd-exam-secrets-studentbee
+                  key: CLIENT_SECRET
+            - name: REDIRECT_URI
+              value: https://exam-api.login.no/api/callback
+            - name: EXAM_URL
+              value: https://exam-dev.login.no
           ports:
             - containerPort: 8080
               name: 8080tcp
