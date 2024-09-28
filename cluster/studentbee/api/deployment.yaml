@@ -105,7 +105,8 @@ spec:
                   name: 1pwd-exam-secrets-studentbee
                   key: REDIRECT_URI
             - name: EXAM_URL
-              secretKeyRef:
+              valueFrom:
+                secretKeyRef:
                   name: 1pwd-exam-secrets-studentbee
                   key: EXAM_URL
           ports:
