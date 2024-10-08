@@ -117,7 +117,7 @@ spec:
               readOnly: true
               mountPath: "/tls"
         - name: redis
-          image: redis:7.4.1-alpine3.20@sha256:69ffdec65a1a91fee5e30530c559f0531efae1fd4ddbd93c6d84ffac821c02c7
+          image: redis:7.4.1-alpine3.20@sha256:de13e74e14b98eb96bdf886791ae47686c3c5d29f9d5f85ea55206843e3fce26
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 6379
