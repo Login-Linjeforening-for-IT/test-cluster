@@ -5,6 +5,7 @@ metadata:
   name: queenbee-frontend-ingress
   namespace: queenbee
   annotations:
+    # a comment
     nginx.ingress.kubernetes.io/configuration-snippet: |
       add_header Content-Security-Policy "default-src 'self'; img-src 'self';
 spec:
