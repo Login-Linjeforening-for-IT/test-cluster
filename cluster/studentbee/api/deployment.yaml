@@ -35,7 +35,7 @@ spec:
         - name: studentbee-pull-secret
       containers:
         - name: api
-          image: registry.login.no/tekkom/web/beehive/exam.login.no/api:1.2.5-dev@sha256:978da37144053438d433bdd38802e3977b8417ecca4ba591c3e706e5f7aaa1c8
+          image: registry.login.no/tekkom/web/beehive/exam.login.no/api:1.2.7-dev@sha256:f2088ec91810c5c6cf497fbe08186bc45d7415d17be66f7c6dd6b34b45141227
           command:
             - npm
             - start
