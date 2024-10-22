@@ -32,7 +32,7 @@ spec:
         compliance: not-defined
     spec:
       imagePullSecrets:
-        - name: studentbee-pull-secret
+        - name: gitlab-deploy-key-studentbee
       containers:
         - name: api
           image: registry.login.no/tekkom/web/beehive/exam.login.no/api:1.2.7-dev@sha256:f2088ec91810c5c6cf497fbe08186bc45d7415d17be66f7c6dd6b34b45141227
