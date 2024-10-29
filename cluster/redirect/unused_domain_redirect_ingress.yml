@@ -4,7 +4,7 @@ kind: Ingress
 metadata:
   annotations:
     nginx.ingress.kubernetes.io/permanent-redirect: https://login.no
-    name: unused-domains-redirect-ingress
+  name: unused-domains-redirect-ingress
 spec:
   ingressClassName: nginx-ntnu
   tls:
