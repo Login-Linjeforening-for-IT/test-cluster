@@ -5,6 +5,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/permanent-redirect: https://discord.com/invite/login-ntnu
   name: discord-redirect-ingress
+  namespace: redirect-namespace
 spec:
   ingressClassName: nginx-ntnu
   tls:

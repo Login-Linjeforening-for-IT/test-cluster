@@ -5,6 +5,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/permanent-redirect: https://login.no
   name: unused-domains-redirect-ingress
+  namespace: redirect-namespace
 spec:
   ingressClassName: nginx-ntnu
   tls:
