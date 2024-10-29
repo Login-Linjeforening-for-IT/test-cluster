@@ -10,37 +10,37 @@ spec:
   ingressClassName: nginx-ntnu
   tls:
     - hosts:
-        - linjeforeningen.it
-        - cyberdagen.net
-        - cyberdagen.no
-        - cyberdagene.net
-        - cyberdagene.no
-        - fadderuka.com
-        - fadderuka.org
-        - karrieredag.no
-        - login-ntnu.no
-        - login.coffee
-        - loginlf.no
-        - loginntnu.no
-        - logintnu.no
-        - logntnu.com
-        - logout.no
-        - ntnulogin.no
+        - test-redirect.linjeforeningen.it
+        - test-redirect.cyberdagen.net
+        - test-redirect.cyberdagen.no
+        - test-redirect.cyberdagene.net
+        - test-redirect.cyberdagene.no
+        - test-redirect.fadderuka.com
+        - test-redirect.fadderuka.org
+        - test-redirect.karrieredag.no
+        - test-redirect.login-ntnu.no
+        - test-redirect.login.coffee
+        - test-redirect.loginlf.no
+        - test-redirect.loginntnu.no
+        - test-redirect.logintnu.no
+        - test-redirect.logntnu.com
+        - test-redirect.logout.no
+        - test-redirect.ntnulogin.no
   rules:
-    - host: test-discord.login.no
-    - host: linjeforeningen.it
-    - host: cyberdagen.net
-    - host: cyberdagen.no
-    - host: cyberdagene.net
-    - host: cyberdagene.no
-    - host: fadderuka.com
-    - host: fadderuka.org
-    - host: karrieredag.no
-    - host: login-ntnu.no
-    - host: login.coffee
-    - host: loginlf.no
-    - host: loginntnu.no
-    - host: logintnu.no
-    - host: logntnu.com
-    - host: logout.no
-    - host: ntnulogin.no
+    - host: test-redirect.test-discord.login.no
+    - host: test-redirect.linjeforeningen.it
+    - host: test-redirect.cyberdagen.net
+    - host: test-redirect.cyberdagen.no
+    - host: test-redirect.cyberdagene.net
+    - host: test-redirect.cyberdagene.no
+    - host: test-redirect.fadderuka.com
+    - host: test-redirect.fadderuka.org
+    - host: test-redirect.karrieredag.no
+    - host: test-redirect.login-ntnu.no
+    - host: test-redirect.login.coffee
+    - host: test-redirect.loginlf.no
+    - host: test-redirect.loginntnu.no
+    - host: test-redirect.logintnu.no
+    - host: test-redirect.logntnu.com
+    - host: test-redirect.logout.no
+    - host: test-redirect.ntnulogin.no
