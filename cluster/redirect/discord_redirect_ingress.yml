@@ -1,0 +1,15 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/server-snippet: |
+      return 301 https://discord.com/invite/login-ntnu;
+    name: discord-redirect-ingress
+spec:
+  ingressClassName: nginx-ntnu
+  tls:
+    - hosts:
+        - test-discord.login.no
+  rules:
+    - host: test-discord.login.no
