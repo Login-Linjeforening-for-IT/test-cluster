@@ -4,7 +4,7 @@ kind: Ingress
 metadata:
   annotations:
     nginx.ingress.kubernetes.io/permanent-redirect: https://shop.tpgo.no/#/?countryCode=NO&companyIdent=811940372
-    name: usb-redirect-ingress
+  name: usb-redirect-ingress
 spec:
   ingressClassName: nginx-ntnu
   tls:
