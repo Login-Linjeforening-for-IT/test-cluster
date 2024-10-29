@@ -1,0 +1,46 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/server-snippet: |
+      return 301 https://login.no;
+    name: unused-domains-redirect-ingress
+spec:
+  ingressClassName: nginx-ntnu
+  tls:
+    - hosts:
+        - test-redirect.linjeforeningen.it
+        - test-redirect.cyberdagen.net
+        - test-redirect.cyberdagen.no
+        - test-redirect.cyberdagene.net
+        - test-redirect.cyberdagene.no
+        - test-redirect.fadderuka.com
+        - test-redirect.fadderuka.org
+        - test-redirect.karrieredag.no
+        - test-redirect.login-ntnu.no
+        - test-redirect.login.coffee
+        - test-redirect.loginlf.no
+        - test-redirect.loginntnu.no
+        - test-redirect.logintnu.no
+        - test-redirect.logntnu.com
+        - test-redirect.logout.no
+        - test-redirect.ntnulogin.no
+  rules:
+    - host: test-redirect.test-discord.login.no
+    - host: test-redirect.linjeforeningen.it
+    - host: test-redirect.cyberdagen.net
+    - host: test-redirect.cyberdagen.no
+    - host: test-redirect.cyberdagene.net
+    - host: test-redirect.cyberdagene.no
+    - host: test-redirect.fadderuka.com
+    - host: test-redirect.fadderuka.org
+    - host: test-redirect.karrieredag.no
+    - host: test-redirect.login-ntnu.no
+    - host: test-redirect.login.coffee
+    - host: test-redirect.loginlf.no
+    - host: test-redirect.loginntnu.no
+    - host: test-redirect.logintnu.no
+    - host: test-redirect.logntnu.com
+    - host: test-redirect.logout.no
+    - host: test-redirect.ntnulogin.no
