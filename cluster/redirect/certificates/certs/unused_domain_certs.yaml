@@ -26,6 +26,3 @@ spec:
     - "logntnu.com"
     - "logout.no"
     - "ntnulogin.no"
-
-
-# needs to ne changed: https://gitlab.login.no/tekkom/infrastructure/kubernetes/internal-test-cluster/-/blob/de329b9a9c19bf351eee9b8e0e578255f5a00882/cluster/external-dns/external-dns.yaml#L26
