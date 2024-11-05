@@ -8,7 +8,7 @@ spec:
   secretName: redirect-old-domains-cert
   issuerRef:
     kind: Issuer
-    name: do-issuer-prod
+    name: do-issuer-unused-domains
   dnsNames:
     - "linjeforeningen.it"
     - "cyberdagen.net"
