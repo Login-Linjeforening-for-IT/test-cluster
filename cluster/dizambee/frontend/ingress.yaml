@@ -1,0 +1,22 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dizambee-frontend
+  namespace: dizambee
+spec:
+  ingressClassName: nginx-ntnu
+  tls:
+    - hosts:
+        - dev-zammad.login.no
+  rules:
+    - host: dev-zammad.login.no
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: dizambee-frontend
+                port:
+                  number: 3000

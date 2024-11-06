@@ -1,0 +1,104 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: dizambee-api
+    component: api
+    part-of: beehive
+    project: zammad.login.no
+    confidentiality: not-defined
+    compliance: not-defined
+  name: dizambee-api
+  namespace: dizambee
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: dizambee-api
+  template:
+    metadata:
+      labels:
+        app: dizambee-api
+        component: api
+        part-of: beehive
+        project: zammad.login.no
+        confidentiality: not-defined
+        compliance: not-defined
+    spec:
+      imagePullSecrets:
+        - name: gitlab-deploy-key-dizambee
+      containers:
+        - name: api
+          image: registry.login.no/tekkom/web/beehive/zammad.login.no/api:1.0.0
+          command:
+            - npm
+            - start
+          env:
+            # Shared environment variables
+            - name: PRODUCTION
+              value: false
+            - name: PORT
+              value: 8080
+            - name: REDIS_HOST
+              value: localhost
+            - name: REDIS_PORT
+              value: 6379
+            - name: CACHE_TTL
+              value: 3600
+            - name: API
+              value: https://zammad-api.login.no/api/v1
+            - name: TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: 1pwd-dizambee-secrets-dizambee
+                  key: TOKEN
+          ports:
+            - containerPort: 8080
+              name: 8080tcp
+              protocol: TCP
+          # livenessProbe:
+          #   httpGet:
+          #     path: /api/health
+          #     port: 8080
+          #   initialDelaySeconds: 10
+          #   periodSeconds: 10
+          # readinessProbe:
+          #   httpGet:
+          #     path: /api/
+          #     port: 8080
+          #   initialDelaySeconds: 30
+          #   periodSeconds: 5
+          resources:
+            requests:
+              memory: 128Mi
+              cpu: 125m
+            limits:
+              memory: 512Mi
+              cpu: 1000m
+        - name: redis
+          image: redis:7.4.1-alpine3.20@sha256:de13e74e14b98eb96bdf886791ae47686c3c5d29f9d5f85ea55206843e3fce26
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 6379
+              name: 6379tcp
+              protocol: TCP
+          resources:
+            requests:
+              memory: 128Mi
+              cpu: 125m
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - nginx
+              topologyKey: kubernetes.io/hostname
