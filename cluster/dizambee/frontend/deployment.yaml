@@ -6,7 +6,7 @@ metadata:
     app: dizambee-frontend
     component: frontend
     part-of: beehive
-    project: zammad.login.no
+    project: dizambee
     confidentiality: not-defined
     compliance: not-defined
   name: dizambee-frontend
@@ -27,7 +27,7 @@ spec:
         app: dizambee-frontend
         component: frontend
         part-of: beehive
-        project: zammad.login.no
+        project: dizambee
         confidentiality: not-defined
         compliance: not-defined
     spec:
@@ -35,7 +35,7 @@ spec:
         - name: gitlab-deploy-key-dizambee
       containers:
         - name: webserver
-          image: registry.login.no/tekkom/web/beehive/zammad.login.no/frontend:1.0.0
+          image: registry.login.no/tekkom/web/beehive/dizambee/frontend:1.0.0
           imagePullPolicy: IfNotPresent
           command:
             - npm

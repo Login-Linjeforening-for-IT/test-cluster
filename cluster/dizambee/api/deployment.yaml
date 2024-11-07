@@ -6,7 +6,7 @@ metadata:
     app: dizambee-api
     component: api
     part-of: beehive
-    project: zammad.login.no
+    project: dizambee
     confidentiality: not-defined
     compliance: not-defined
   name: dizambee-api
@@ -27,7 +27,7 @@ spec:
         app: dizambee-api
         component: api
         part-of: beehive
-        project: zammad.login.no
+        project: dizambee
         confidentiality: not-defined
         compliance: not-defined
     spec:
@@ -35,7 +35,7 @@ spec:
         - name: gitlab-deploy-key-dizambee
       containers:
         - name: api
-          image: registry.login.no/tekkom/web/beehive/zammad.login.no/api:1.0.0
+          image: registry.login.no/tekkom/web/beehive/dizambee/api:1.0.0
           command:
             - npm
             - start

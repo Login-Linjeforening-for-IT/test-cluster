@@ -8,9 +8,9 @@ spec:
   ingressClassName: nginx-ntnu
   tls:
     - hosts:
-        - dev-zammad.login.no
+        - dev-dizambee.login.no
   rules:
-    - host: dev-zammad.login.no
+    - host: dev-dizambee.login.no
       http:
         paths:
           - pathType: Prefix
