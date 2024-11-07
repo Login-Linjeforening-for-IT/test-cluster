@@ -44,7 +44,7 @@ spec:
             - name: API_URL
               value: http://dizambee-api.dizambee.svc.cluster.local:8080/api
             - name: BROWSER_API
-              value: http://dizambee-api.login.no:8080/api
+              value: http://dev-dizambee-api.login.no:8080/api
           ports:
             - containerPort: 3000
               name: 3000tcp
