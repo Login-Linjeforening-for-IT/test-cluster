@@ -42,15 +42,15 @@ spec:
           env:
             # Shared environment variables
             - name: PRODUCTION
-              value: false
+              value: "false"
             - name: PORT
-              value: 8080
+              value: "8080"
             - name: REDIS_HOST
               value: localhost
             - name: REDIS_PORT
-              value: 6379
+              value: "6379"
             - name: CACHE_TTL
-              value: 3600
+              value: "3600"
             - name: API
               value: https://zammad-api.login.no/api/v1
             - name: TOKEN
