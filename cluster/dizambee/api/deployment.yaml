@@ -52,7 +52,7 @@ spec:
             - name: CACHE_TTL
               value: "3600"
             - name: API
-              value: https://zammad-api.login.no/api/v1
+              value: https://zammad.login.no/api/v1
             - name: TOKEN
               valueFrom:
                 secretKeyRef:
