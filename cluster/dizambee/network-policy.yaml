@@ -58,7 +58,7 @@ spec:
   - to:
     - namespaceSelector:
         matchLabels:
-          kubernetes.io/metadata.name: nginx-ingress-ntnu
+          kubernetes.io/metadata.name: nginx-ingress-external
 
 # Allowing api to kube-dns traffic
 ---
