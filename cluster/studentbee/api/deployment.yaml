@@ -35,7 +35,7 @@ spec:
         - name: gitlab-deploy-key-studentbee
       containers:
         - name: api
-          image: registry.login.no/tekkom/web/beehive/exam.login.no/api:1.2.19-dev@sha256:d1ca75c7369a44c80c2b1b24976fa2bdbaed0b2afb3bf8d2c74138b9d8c3a47c
+          image: registry.login.no/tekkom/web/beehive/exam.login.no/api:1.2.20-dev@sha256:bf5d46ed1ad334d20b892d59d68ad413f81addad94afd931486b9bb0577d1e77
           command:
             - npm
             - start
