@@ -35,7 +35,7 @@ spec:
         - name: gitlab-deploy-key-studentbee
       containers:
         - name: webserver
-          image: registry.login.no/tekkom/web/beehive/exam.login.no/frontend:3.1.4-dev@sha256:6843ef36c30f3064f373146bc280893ce9656ccadc79958f65bfbdeaf699a698
+          image: registry.login.no/tekkom/web/beehive/exam.login.no/frontend:3.1.5-dev@sha256:22afe3bce6135138eb72afd1d5c58406410dcaa4201b0db24ab55b73c19ea7ba
           imagePullPolicy: IfNotPresent
           command:
             - npm
