@@ -8,4 +8,4 @@ spec:
   minAvailable: 1
   selector:
     matchLabels:
-      app: queenbee-api
+      app: admin-api
