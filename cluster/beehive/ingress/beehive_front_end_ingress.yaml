@@ -20,7 +20,7 @@ spec:
             path: "/"
             backend:
               service:
-                name: beehive-frontend-svc
+                name: beehive-frontend
                 port:
                   number: 80
     - host: www.test.login.no
@@ -30,6 +30,6 @@ spec:
             path: "/"
             backend:
               service:
-                name: beehive-frontend-svc
+                name: beehive-frontend
                 port:
                   number: 80

@@ -20,6 +20,6 @@ spec:
             path: "/"
             backend:
               service:
-                name: queenbee-frontend-svc
+                name: queenbee-frontend
                 port:
                   number: 4200
