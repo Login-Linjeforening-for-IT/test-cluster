@@ -28,26 +28,24 @@ spec:
           image: registry.login.no/tekkom/web/beehive/frontend:3.0.2-dev@sha256:d639db2d8912aabfb8b76e9b83a5b1a9e1f9433467ee4c9efc660caaccdf18aa
           imagePullPolicy: Always
           env:
-            - name: NODE_ENV
-              value: production
             - name: REACT_APP_API_URL
               value: testapi.login.no
             - name: API_URL
               value: https://testapi.login.no/api
           ports:
-            - containerPort: 80
-              name: 80tcp
+            - containerPort: 3000
+              name: 3000tcp
               protocol: TCP
           livenessProbe:
             httpGet:
               path: /
-              port: 80
+              port: 3000
             initialDelaySeconds: 30
             periodSeconds: 10
           readinessProbe:
             httpGet:
               path: /
-              port: 80
+              port: 3000
             initialDelaySeconds: 5
             periodSeconds: 5
           resources:
