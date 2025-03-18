@@ -22,7 +22,7 @@ spec:
               service:
                 name: beehive-frontend
                 port:
-                  number: 80
+                  number: 3000
     - host: www.test.login.no
       http:
         paths:
@@ -32,4 +32,4 @@ spec:
               service:
                 name: beehive-frontend
                 port:
-                  number: 80
+                  number: 3000
