@@ -1,0 +1,62 @@
+## https://github.com/zammad/zammad-helm/blob/main/zammad/values.yaml
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: zammad
+  namespace: zammad
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: zammad
+      version: "13.0.13"
+      sourceRef:
+        kind: HelmRepository
+        name: helm-repo
+        namespace: zammad
+      interval: 5m
+  values:
+    secrets:
+      postgresql:
+        useExisting: true
+        secretKey: password
+        secretName: zammad-db-credentials
+    ingress:
+      enabled: true
+      ingressClassName: nginx-external
+      annotations:
+        nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+        nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+        nginx.ingress.kubernetes.io/upgrade-proxy: "true"
+        nginx.ingress.kubernetes.io/enable-websockets: "true"
+      tls:
+        - hosts:
+            - zammad.login.no
+      hosts:
+        - host: zammad.login.no
+          paths:
+            - path: "/"
+              pathType: Prefix
+    elasticsearch:
+      master:
+        replicaCount: 3
+    zammadConfig:
+      postgresql:
+        enabled: false
+        db: zammad
+        host: zammad-recovery-rw.zammad.svc.cluster.local
+        user: zammad
+        port: "5432"
+      redis:
+        enabled: true
+      elasticsearch:
+        enabled: true
+      memcached:
+        enabled: true
+      minio:
+        enabled: false
+      nginx:
+        replicas: 3
+      railsserver:
+        replicas: 3

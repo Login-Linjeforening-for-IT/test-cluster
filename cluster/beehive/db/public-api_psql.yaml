@@ -23,7 +23,7 @@ spec:
   externalClusters:
     - name: clusterBackup
       barmanObjectStore:
-        destinationPath: s3://login-internal-prod-psql-backups/beehive-dev
+        destinationPath: s3://login-internal-dev-psql-backups/beehive-dev
         serverName: public-api-psql
         s3Credentials:
           accessKeyId:
@@ -35,7 +35,7 @@ spec:
   backup:
     retentionPolicy: "30d"
     barmanObjectStore:
-      destinationPath: s3://login-internal-prod-psql-backups/beehive
+      destinationPath: s3://login-internal-dev-psql-backups/beehive
       s3Credentials:
         accessKeyId:
           name: beehive-pg-backup

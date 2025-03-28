@@ -1,0 +1,10 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: helm-repo
+  namespace: zammad
+spec:
+  interval: 5m
+  url: https://zammad.github.io/zammad-helm
+
