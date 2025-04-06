@@ -125,6 +125,34 @@ spec:
   egress:
     - {}
 
+# Allowing api to kube-dns traffic
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-api-to-kube-dns
+  namespace: beehive
+spec:
+  podSelector:
+    matchExpressions:
+      - key: app
+        operator: In
+        values:
+          - beehive-backend
+          - beehive-frontend
+  policyTypes:
+    - Ingress
+    - Egress
+  egress:
+    - to:
+        - namespaceSelector: {}
+          podSelector:
+            matchLabels:
+              k8s-app: kube-dns
+      ports:
+        - protocol: UDP
+          port: 53
+
 # Allowing api ingress traffic
 ---
 apiVersion: networking.k8s.io/v1
