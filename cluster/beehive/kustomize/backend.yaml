@@ -3,13 +3,13 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: beehive-backend
-  namespace: workerbee
+  namespace: beehive
 spec:
   interval: 5m
-  path: "cluster/workerbee/backend"
+  path: "cluster/beehive/backend"
   dependsOn:
-    - name: workerbee-secrets
-      namespace: workerbee
+    - name: beehive-secrets
+      namespace: beehive
     - name: cert-manager
       namespace: cert-manager
   prune: true
