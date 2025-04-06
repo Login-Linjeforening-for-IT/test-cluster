@@ -11,3 +11,9 @@ resources:
   - kustomize/frontend.yaml
   - kustomize/backend.yaml
   - kustomize/secrets.yaml
+  - frontend/deployment.yaml
+  - frontend/ingress.yaml
+  - frontend/service.yaml
+  - backend/deployment.yaml
+  - backend/ingress.yaml
+  - backend/service.yaml
