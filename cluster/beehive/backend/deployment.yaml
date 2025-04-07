@@ -31,7 +31,7 @@ spec:
             - name: PORT
               value: "8080"
             - name: ALLOWED_ORIGINS
-              value: "https://test.login.no,https://www.test.login.no,https://localhost:3000,http://localhost:3000"
+              value: "https://test.login.no,https://www.test.login.no,http://localhost:3000,http://localhost:3000"
             - name: DB_HOST
               value: public-api-psql-ro.beehive.svc.cluster.local
             - name: DB_PORT
@@ -63,14 +63,14 @@ spec:
             httpGet:
               path: /ping
               port: 8080
-              scheme: HTTPS
+              scheme: HTTP
             initialDelaySeconds: 30
             periodSeconds: 10
           readinessProbe:
             httpGet:
               path: /ping
               port: 8080
-              scheme: HTTPS
+              scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
           resources:
