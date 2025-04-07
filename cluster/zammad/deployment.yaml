@@ -40,7 +40,7 @@ spec:
               pathType: Prefix
     elasticsearch:
       master:
-        replicaCount: 3
+        replicaCount: 1
     zammadConfig:
       postgresql:
         enabled: false
@@ -57,6 +57,6 @@ spec:
       minio:
         enabled: false
       nginx:
-        replicas: 3
+        replicas: 1
       railsserver:
-        replicas: 3
+        replicas: 1
