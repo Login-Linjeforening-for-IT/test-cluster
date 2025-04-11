@@ -57,6 +57,6 @@ spec:
       minio:
         enabled: false
       nginx:
-        replicas: 1
+        replicas: 0
       railsserver:
-        replicas: 1
+        replicas: 0
