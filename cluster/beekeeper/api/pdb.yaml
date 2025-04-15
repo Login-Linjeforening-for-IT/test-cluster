@@ -2,7 +2,7 @@
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
-  name: beekeeper-dev-api-pdb
+  name: api-pdb
   namespace: beekeeper
 spec:
   minAvailable: 1

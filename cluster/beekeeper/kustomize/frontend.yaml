@@ -7,8 +7,15 @@ metadata:
 spec:
   interval: 5m
   path: "cluster/beekeeper/frontend"
+  dependsOn:
+    - name: beekeeper-secrets
+      namespace: beekeeper
+    - name: beekeeper-api
+      namespace: beekeeper
+    - name: cert-manager
+      namespace: cert-manager
   prune: true
   sourceRef:
     kind: GitRepository
-    name: test-cluster
+    name: flux-system
     namespace: flux-system
