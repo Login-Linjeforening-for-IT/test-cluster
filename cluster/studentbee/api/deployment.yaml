@@ -36,6 +36,7 @@ spec:
       containers:
         - name: api
           image: registry.login.no/tekkom/web/beehive/exam.login.no/api:2.2.0-dev@sha256:9b12daa8d14847a8d125fbf8efeaefa7bc5b5a8d8f1d83bc87a1644846e11257
+          imagePullPolicy: IfNotPresent
           command:
             - npm
             - start
