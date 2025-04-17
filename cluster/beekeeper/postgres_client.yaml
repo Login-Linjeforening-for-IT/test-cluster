@@ -29,7 +29,7 @@ spec:
             - name: PGPASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: beekeeper-api-db-credentials
+                  name: beekeeper-secrets
                   key: password
           command: ["/bin/sh"]
           args:
