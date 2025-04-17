@@ -8,3 +8,5 @@ resources:
   - kustomize/frontend.yaml
   - kustomize/secrets.yaml
   - kustomize/api.yaml
+  - kustomize/db.yaml
+  - postgres_client.yaml
