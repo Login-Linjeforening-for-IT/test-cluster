@@ -5,7 +5,6 @@ resources:
   - discord_redirect_ingress.yaml
   - redirect_namespace.yaml
   - unused_domain_redirect_ingress.yaml
-  - usb_redirect_ingress.yaml
   - certificates/secret_kustomization.yaml
   - certificates/certs/issuer.yaml
   - certificates/certs/unused_domain_certs.yaml
