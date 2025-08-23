@@ -25,7 +25,7 @@ spec:
         - name: gitlab-token-beehive-frontend
       containers:
         - name: beehive-frontend
-          image: registry.login.no/tekkom/web/beehive/frontend:4.2.1-dev@sha256:a45549226637114545c2047a617893f208d1ede3a810655f11c1783ab68fbf89
+          image: registry.login.no/tekkom/web/beehive/frontend:4.2.2-dev@sha256:da258611de57d9d52e1ec0e9195cfb77a62380d2b440c8f1626ca244b25f452a
           imagePullPolicy: Always
           env:
             - name: API_URL
