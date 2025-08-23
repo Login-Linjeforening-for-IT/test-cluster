@@ -29,6 +29,28 @@ spec:
           env:
             - name: BASE_URL
               value: https://queenbee-api-dev.login.no/v1
+            - name: TYPE
+              value: "test"
+            - name: PROJECT_ID
+              value: "test"
+            - name: PRIVATE_KEY_ID
+              value: "test"
+            - name: PRIVATE_KEY
+              value: "test"
+            - name: CLIENT_EMAIL
+              value: "test"
+            - name: CLIENT_ID
+              value: "test"
+            - name: AUTH_URI
+              value: "test"
+            - name: TOKEN_URI
+              value: "test"
+            - name: AUTH_CERT_URL
+              value: "test"
+            - name: CLIENT_CERT_URL
+              value: "test"
+            - name: UNIVERSE_DOMAIN
+              value: "test"
           ports:
             - containerPort: 4200
               name: 4200tcp
