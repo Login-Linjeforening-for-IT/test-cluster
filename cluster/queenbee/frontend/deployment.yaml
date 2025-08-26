@@ -28,7 +28,7 @@ spec:
           name: queenbee-frontend
           env:
             - name: API_URL
-              value: https://queenbee-api-dev.login.no/v1
+              value: "https://queenbee-api-dev.login.no/v1"
             - name: TYPE
               value: "test"
             - name: PROJECT_ID
