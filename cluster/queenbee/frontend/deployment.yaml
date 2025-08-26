@@ -27,7 +27,7 @@ spec:
           imagePullPolicy: Always
           name: queenbee-frontend
           env:
-            - name: BASE_URL
+            - name: API_URL
               value: https://queenbee-api-dev.login.no/v1
             - name: TYPE
               value: "test"
@@ -52,19 +52,19 @@ spec:
             - name: UNIVERSE_DOMAIN
               value: "test"
           ports:
-            - containerPort: 4200
-              name: 4200tcp
+            - containerPort: 3000
+              name: 3000tcp
               protocol: TCP
           livenessProbe:
             httpGet:
               path: /
-              port: 4200
+              port: 3000
             initialDelaySeconds: 30
             periodSeconds: 10
           readinessProbe:
             httpGet:
               path: /
-              port: 4200
+              port: 3000
             initialDelaySeconds: 5
             periodSeconds: 5
           resources:
