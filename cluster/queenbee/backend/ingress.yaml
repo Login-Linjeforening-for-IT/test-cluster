@@ -10,9 +10,9 @@ spec:
   ingressClassName: nginx-ntnu
   tls:
     - hosts:
-        - queenbee-api-dev.login.no
+        - dev.api.queenbee.login.no
   rules:
-    - host: queenbee-api-dev.login.no
+    - host: dev.api.queenbee.login.no
       http:
         paths:
           - pathType: Prefix

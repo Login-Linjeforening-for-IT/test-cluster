@@ -64,9 +64,9 @@ spec:
                   name: admin-api-auth
                   key: client_secret
             - name: OAUTH2_REDIRECT_URL
-              value: https://queenbee-api-dev.login.no/v1/oauth2/callback
+              value: https://dev.api.queenbee.login.no/v1/oauth2/callback
             - name: OAUTH2_FRONTEND_REDIRECT_URL
-              value: https://queenbee-dev.login.no/login
+              value: https://dev.queenbee.login.no/login
             - name: OAUTH2_AUTHENTIK_BASE_URL
               value: https://authentik.login.no
             - name: TOKEN_ACCESS_TOKEN_SYMMETRIC_KEY
