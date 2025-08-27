@@ -8,9 +8,9 @@ spec:
   ingressClassName: nginx-ntnu
   tls:
     - hosts:
-        - beekeeper-api-dev.login.no
+        - dev.api.beekeeper.login.no
   rules:
-    - host: beekeeper-api-dev.login.no
+    - host: dev.api.beekeeper.login.no
       http:
         paths:
           - pathType: Prefix
