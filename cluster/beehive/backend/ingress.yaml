@@ -8,9 +8,9 @@ spec:
   ingressClassName: nginx-ntnu
   tls:
     - hosts:
-        - dev.workerbee.login.no
+        - devtmp.workerbee.login.no
   rules:
-    - host: dev.workerbee.login.no
+    - host: devtmp.workerbee.login.no
       http:
         paths:
           - pathType: Prefix
