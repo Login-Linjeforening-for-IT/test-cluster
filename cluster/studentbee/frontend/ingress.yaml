@@ -8,9 +8,9 @@ spec:
   ingressClassName: nginx-ntnu
   tls:
     - hosts:
-        - dev.exam.login.no
+        - test.exam.login.no
   rules:
-    - host: dev.exam.login.no
+    - host: test.exam.login.no
       http:
         paths:
           - pathType: Prefix
