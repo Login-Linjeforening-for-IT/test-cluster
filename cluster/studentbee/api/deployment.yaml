@@ -6,7 +6,7 @@ metadata:
     app: studentbee-api
     component: api
     part-of: beehive
-    project: exam.login.no
+    project: studentbee
     confidentiality: not-defined
     compliance: not-defined
   name: studentbee-api
@@ -27,7 +27,7 @@ spec:
         app: studentbee-api
         component: api
         part-of: beehive
-        project: exam.login.no
+        project: studentbee
         confidentiality: not-defined
         compliance: not-defined
     spec:
@@ -35,7 +35,7 @@ spec:
         - name: gitlab-deploy-key-studentbee
       containers:
         - name: api
-          image: registry.login.no/tekkom/web/beehive/exam.login.no/api:2.4.1-dev@sha256:889819900103409dadf20ca972cd9f054d90b5bef6557495a3f8e2b64b7718b9
+          image: registry.login.no/tekkom/web/beehive/studentbee/api:2.4.1-dev@sha256:889819900103409dadf20ca972cd9f054d90b5bef6557495a3f8e2b64b7718b9
           imagePullPolicy: IfNotPresent
           command:
             - npm
