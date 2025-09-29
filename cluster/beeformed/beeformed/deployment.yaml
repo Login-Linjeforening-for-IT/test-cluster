@@ -40,27 +40,27 @@ spec:
             - name: NEXT_PUBLIC_AUTHENTIK_CLIENT_ID
               valueFrom:
                 secretKeyRef:
-                  name: 1pwd-beeformed-secrets
+                  name: beeformed-secrets
                   key: CLIENT_ID
             - name: AUTHENTIK_CLIENT_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: 1pwd-beeformed-secrets
+                  name: beeformed-secrets
                   key: CLIENT_SECRET
             - name: NEXT_PUBLIC_AUTHENTIK_URI
               valueFrom:
                 secretKeyRef:
-                  name: 1pwd-beeformed-secrets
+                  name: beeformed-secrets
                   key: AUTHENTIK_URI
             - name: NEXT_PUBLIC_URI
               valueFrom:
                 secretKeyRef:
-                  name: 1pwd-beeformed-secrets
+                  name: beeformed-secrets
                   key: URI
             - name: NEXT_PUBLIC_API_URI
               valueFrom:
                 secretKeyRef:
-                  name: 1pwd-beeformed-secrets
+                  name: beeformed-secrets
                   key: API_URI
           ports:
             - containerPort: 3000
