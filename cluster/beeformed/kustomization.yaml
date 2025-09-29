@@ -4,3 +4,5 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - network-policy.yaml
+  - kustomize/beeformed.yaml
+  - kustomize/secrets.yaml
