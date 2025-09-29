@@ -1,0 +1,82 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: beeformed
+    part-of: beehive
+    project: beeformed
+    confidentiality: not-defined
+    compliance: not-defined
+  name: beeformed
+  namespace: beeformed
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: beeformed
+  template:
+    metadata:
+      labels:
+        app: beeformed
+        component: beeformed
+        part-of: beehive
+        project: beeformed
+        confidentiality: not-defined
+        compliance: not-defined
+    spec:
+      imagePullSecrets:
+        - name: gitlab-deploy-key-beeformed
+      containers:
+        - name: webserver
+          image: registry.login.no/tekkom/web/beehive/beeformed:1.0.0-dev@sha256:a3047d054bd3564ed76b9fdd3cd3ea7146ac28bbfe9885b01feaf54ea1e7b611
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: NEXT_PUBLIC_AUTHENTIK_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: 1pwd-beeformed-secrets
+                  key: CLIENT_ID
+            - name: AUTHENTIK_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: 1pwd-beeformed-secrets
+                  key: CLIENT_SECRET
+            - name: NEXT_PUBLIC_AUTHENTIK_URI
+              valueFrom:
+                secretKeyRef:
+                  name: 1pwd-beeformed-secrets
+                  key: AUTHENTIK_URI
+            - name: NEXT_PUBLIC_URI
+              valueFrom:
+                secretKeyRef:
+                  name: 1pwd-beeformed-secrets
+                  key: URI
+            - name: NEXT_PUBLIC_API_URI
+              valueFrom:
+                secretKeyRef:
+                  name: 1pwd-beeformed-secrets
+                  key: API_URI
+          ports:
+            - containerPort: 3000
+              name: 3000tcp
+              protocol: TCP
+          resources:
+            requests:
+              memory: 128Mi
+              cpu: 125m
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - nginx
+              topologyKey: kubernetes.io/hostname

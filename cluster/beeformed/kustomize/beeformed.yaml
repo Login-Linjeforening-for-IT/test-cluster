@@ -1,0 +1,19 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: beeformed
+  namespace: beeformed
+spec:
+  interval: 5m
+  path: "cluster/beeformed"
+  dependsOn:
+    - name: beeformed-secrets
+      namespace: beeformed
+    - name: cert-manager
+      namespace: cert-manager
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: test-cluster
+    namespace: flux-system
