@@ -34,7 +34,7 @@ spec:
         - name: gitlab-deploy-key-beeformed
       containers:
         - name: webserver
-          image: registry.login.no/tekkom/web/beehive/beeformed:1.0.0-dev@sha256:a3047d054bd3564ed76b9fdd3cd3ea7146ac28bbfe9885b01feaf54ea1e7b611
+          image: registry.login.no/tekkom/web/beehive/beeformed:1.0.0-dev
           imagePullPolicy: IfNotPresent
           env:
             - name: NEXT_PUBLIC_AUTHENTIK_CLIENT_ID
