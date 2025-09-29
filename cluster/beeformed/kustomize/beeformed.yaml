@@ -6,7 +6,7 @@ metadata:
   namespace: beeformed
 spec:
   interval: 5m
-  path: "cluster/beeformed"
+  path: "cluster/beeformed/beeformed"
   dependsOn:
     - name: beeformed-secrets
       namespace: beeformed
