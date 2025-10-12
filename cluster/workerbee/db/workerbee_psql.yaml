@@ -19,18 +19,6 @@ spec:
     name: db-credentials
   bootstrap:
     initdb: {}
-  externalClusters:
-    - name: clusterBackup
-      barmanObjectStore:
-        destinationPath: s3://login-internal-dev-psql-backups/workerbee-dev
-        serverName: workerbee-psql
-        s3Credentials:
-          accessKeyId:
-            name: workerbee-api-pg-backup
-            key: access
-          secretAccessKey:
-            name: workerbee-api-pg-backup
-            key: secret
   backup:
     retentionPolicy: "30d"
     barmanObjectStore:
