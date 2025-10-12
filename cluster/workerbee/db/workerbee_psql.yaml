@@ -18,8 +18,7 @@ spec:
   superuserSecret:
     name: db-credentials
   bootstrap:
-    recovery:
-      source: clusterBackup
+    initdb: {}
   externalClusters:
     - name: clusterBackup
       barmanObjectStore:
