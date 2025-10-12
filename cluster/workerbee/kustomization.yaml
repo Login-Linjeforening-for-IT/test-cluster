@@ -6,3 +6,4 @@ resources:
   - network-policy.yaml
   - kustomize/workerbee.yaml
   - kustomize/secrets.yaml
+  - kustomize/db.yaml

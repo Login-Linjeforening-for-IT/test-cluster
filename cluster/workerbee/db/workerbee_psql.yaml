@@ -27,10 +27,10 @@ spec:
         serverName: workerbee-psql
         s3Credentials:
           accessKeyId:
-            name: workerbee-pg-backup
+            name: workerbee-api-pg-backup
             key: access
           secretAccessKey:
-            name: workerbee-pg-backup
+            name: workerbee-api-pg-backup
             key: secret
   backup:
     retentionPolicy: "30d"
@@ -38,10 +38,10 @@ spec:
       destinationPath: s3://login-internal-dev-psql-backups/workerbee
       s3Credentials:
         accessKeyId:
-          name: workerbee-pg-backup
+          name: workerbee-api-pg-backup
           key: access
         secretAccessKey:
-          name: workerbee-pg-backup
+          name: workerbee-api-pg-backup
           key: secret
 
 ---
