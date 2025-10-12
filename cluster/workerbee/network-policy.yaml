@@ -63,6 +63,16 @@ spec:
         - namespaceSelector:
             matchLabels:
               kubernetes.io/metadata.name: nginx-ingress-ntnu
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: workerbee
+          podSelector:
+            matchLabels:
+              cnpg.io/cluster: workerbee-psql
+      ports:
+        - protocol: TCP
+          port: 5432
 
 # Allowing api to kube-dns traffic
 ---
@@ -86,5 +96,23 @@ spec:
       ports:
         - protocol: UDP
           port: 53
+
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-psql
+  namespace: workerbee
+spec:
+  policyTypes:
+    - Ingress
+    - Egress
+  podSelector:
+    matchLabels:
+      cnpg.io/cluster: workerbee-psql
+  ingress:
+    - {}
+  egress:
+    - {}
 
 

@@ -40,23 +40,23 @@ spec:
             - name: PORT
               value: "8080"
             - name: POSTGRES_HOST
-              value: public-api-psql-rw.beehive.svc.cluster.local
+              value: workerbee-psql-rw.workerbee.svc.cluster.local
             - name: POSTGRES_PORT
               value: "5432"
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: public-api-db-credentials
+                  name: db-credentials
                   key: password
             - name: POSTGRES_DB
               valueFrom:
                 secretKeyRef:
-                  name: public-api-db-credentials
+                  name: db-credentials
                   key: database
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
-                  name: public-api-db-credentials
+                  name: db-credentials
                   key: username
           ports:
             - containerPort: 8080
