@@ -23,14 +23,30 @@ spec:
       imagePullSecrets:
         - name: gitlab-frontend-pull-token
       containers:
-        - image: registry.login.no/tekkom/web/beehive/queenbee:2.3.13-dev
+        - image: registry.login.no/tekkom/dev/queenbee:3.0.0-dev
           imagePullPolicy: Always
           name: queenbee-frontend
           env:
             - name: API_URL
-              value: "http://admin-api:8080/v1"
+              value: "https://dev.workerbee-v2.login.no/api/v2"
             - name: NEXT_PUBLIC_BROWSER_API
-              value: "https://dev.api.queenbee.login.no/v1"
+              value: "https://dev.workerbee-v2.login.no/api/v2"
+            - name: CDN_URL
+              value: "https://cdn.login.no"
+            - name: BASE_URL
+              value: "https://dev.queenbee.login.no"
+            - name: AUTHENTIK_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: queenbee-secrets
+                  key: AUTHENTIK_CLIENT_ID
+            - name: AUTHENTIK_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: queenbee-secrets
+                  key: AUTHENTIK_CLIENT_SECRET
+            - name: AUTHENTIK_URL
+              value: "https://authentik.login.no"
             - name: TYPE
               value: "service_account"
             - name: PROJECT_ID
