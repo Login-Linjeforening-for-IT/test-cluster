@@ -28,9 +28,9 @@ spec:
           name: queenbee-frontend
           env:
             - name: API_URL
-              value: "http://beekeeper-api.workerbee.svc.cluster.local:8080/api/v2"
+              value: "http://workerbee.workerbee.svc.cluster.local:8080/api/v2"
             - name: NEXT_PUBLIC_BROWSER_API
-              value: "http://beekeeper-api.workerbee.svc.cluster.local:8080/api/v2"
+              value: "http://workerbee.workerbee.svc.cluster.local:8080/api/v2"
             - name: CDN_URL
               value: "https://cdn.login.no"
             - name: BASE_URL
