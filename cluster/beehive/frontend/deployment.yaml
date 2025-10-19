@@ -29,7 +29,7 @@ spec:
           imagePullPolicy: Always
           env:
             - name: API_URL
-              value: http://dev.workerbee.login.no/api/v2
+              value: http://dev.workerbee-v2.login.no/api/v2
             - name: CDN_URL
               value: https://cdn.login.no
             - name: BASE_URL
