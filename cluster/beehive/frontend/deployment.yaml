@@ -29,11 +29,11 @@ spec:
           imagePullPolicy: Always
           env:
             - name: API_URL
-              value: http://dev.workerbee-v2.login.no/api/v2
+              value: "http://workerbee.workerbee.svc.cluster.local:8080/api/v2"
             - name: CDN_URL
-              value: https://cdn.login.no
+              value: "https://cdn.login.no"
             - name: BASE_URL
-              value: https://dev.login.no
+              value: "https://dev.login.no"
             - name: AUTHENTIK_CLIENT_ID
               valueFrom:
                 secretKeyRef:
