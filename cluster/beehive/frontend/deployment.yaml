@@ -28,7 +28,7 @@ spec:
           image: registry.login.no/tekkom/web/beehive/frontend:5.0.0-dev
           imagePullPolicy: Always
           env:
-            - name: API_URL
+            - name: NEXT_PUBLIC_API_URL
               value: "http://workerbee.workerbee.svc.cluster.local:8080/api/v2"
             - name: CDN_URL
               value: "https://cdn.login.no"
