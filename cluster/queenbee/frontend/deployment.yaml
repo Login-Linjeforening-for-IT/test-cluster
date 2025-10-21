@@ -23,7 +23,7 @@ spec:
       imagePullSecrets:
         - name: gitlab-frontend-pull-token
       containers:
-        - image: registry.login.no/tekkom/dev/queenbee:3.1.1-dev
+        - image: registry.login.no/tekkom/web/beehive/queenbee:3.1.1-dev
           imagePullPolicy: Always
           env:
             - name: API_URL
@@ -74,8 +74,6 @@ spec:
               value: "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-r1t6m%40login-da744.iam.gserviceaccount.com"
             - name: UNIVERSE_DOMAIN
               value: "googleapis.com"
-            - name: TEST
-              value: "test"
           ports:
             - containerPort: 3000
               name: 3000tcp
