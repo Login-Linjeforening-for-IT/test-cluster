@@ -6,14 +6,14 @@ resources:
   - ingress_kustomization.yaml
   - cert_kustomization.yaml
   - network_policy.yaml
-  - db_kust.yaml
-  - tmp_postgres_client.yaml
+  # - db_kust.yaml
+  # - tmp_postgres_client.yaml
   - kustomize/frontend.yaml
-  - kustomize/backend.yaml
+  # - kustomize/backend.yaml
   - kustomize/secrets.yaml
   - frontend/deployment.yaml
   - frontend/ingress.yaml
   - frontend/service.yaml
-  - backend/deployment.yaml
-  - backend/ingress.yaml
-  - backend/service.yaml
+  # - backend/deployment.yaml
+  # - backend/ingress.yaml
+  # - backend/service.yaml
