@@ -10,8 +10,6 @@ spec:
   dependsOn:
     - name: beehive-secrets
       namespace: beehive
-    - name: beehive-api
-      namespace: beehive
     - name: cert-manager
       namespace: cert-manager
   prune: true
