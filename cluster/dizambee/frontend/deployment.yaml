@@ -35,7 +35,7 @@ spec:
         - name: gitlab-deploy-key-dizambee
       containers:
         - name: webserver
-          image: registry.login.no/tekkom/web/beehive/dizambee/frontend:1.0.6-dev@sha256:7958878d78672549bac4a5c0c91fcb663aa4fec7b4009dc40285e317c19bc414
+          image: registry.login.no/tekkom/dev/dizambee/frontend:1.0.5-dev
           imagePullPolicy: IfNotPresent
           command:
             - npm
