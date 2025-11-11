@@ -37,31 +37,31 @@ spec:
           image: registry.login.no/tekkom/dev/beeformed:1.0.0-dev
           imagePullPolicy: IfNotPresent
           env:
-            - name: NEXT_PUBLIC_AUTHENTIK_CLIENT_ID
+            - name: AUTH_CLIENT_ID
               valueFrom:
                 secretKeyRef:
                   name: beeformed-secrets
-                  key: CLIENT_ID
-            - name: AUTHENTIK_CLIENT_SECRET
+                  key: AUTH_CLIENT_ID
+            - name: AUTH_CLIENT_SECRET
               valueFrom:
                 secretKeyRef:
                   name: beeformed-secrets
-                  key: CLIENT_SECRET
-            - name: NEXT_PUBLIC_AUTHENTIK_URI
+                  key: AUTH_CLIENT_SECRET
+            - name: AUTH_URL
               valueFrom:
                 secretKeyRef:
                   name: beeformed-secrets
-                  key: AUTHENTIK_URI
-            - name: NEXT_PUBLIC_URI
+                  key: AUTH_URL
+            - name: NEXT_PUBLIC_BASE_URL
               valueFrom:
                 secretKeyRef:
                   name: beeformed-secrets
-                  key: URI
-            - name: NEXT_PUBLIC_API_URI
+                  key: NEXT_PUBLIC_BASE_URL
+            - name: API_URL
               valueFrom:
                 secretKeyRef:
                   name: beeformed-secrets
-                  key: API_URI
+                  key: API_URL
           ports:
             - containerPort: 3000
               name: 3000tcp
